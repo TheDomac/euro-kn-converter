@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="tecaj"></p>
+    <div>
+        <label for="kuna">kn</label>
+        <input placeholder="Kuna" id="kuna" />
+
+    </div>
+    <div>
+
+        <label for="euro">€</label>
+        <input placeholder="Euro" id="euro" />
+    </div>
+    <table>
+        <tr>
+            <tr><td>1kn</td><td>0.13€</td></tr>
+            <tr> <td>2kn</td><td>0.27€</td></tr>
+            <tr><td>3kn</td><td>0.40€</td></tr>
+            <tr><td>4kn</td><td>0.53€</td></tr>
+            <tr>  <td>5kn</td><td>0.66€</td></tr>
+            <tr>  <td>10kn</td><td>1.33€</td></tr>
+            <tr>  <td>20kn</td><td>2.65€</td></tr>
+            <tr>  <td>50kn</td><td>6.64€</td></tr>
+            <tr>   <td>100kn</td><td>13.27€</td></tr>
+            <tr>   <td>200kn</td><td>26.54€</td></tr>
+            <tr>   <td>500kn</td><td>66.36€</td></tr>
+            <tr>  <td>1 000kn</td><td>132.72€</td></tr>
+            <tr>  <td>2 000kn</td><td>265.45€</td></tr>
+            <tr>  <td>5 000kn</td><td>663.61€</td></tr>
+            <tr>  <td>10 000kn</td><td>1327.23€</td></tr>
+        </tbody>
+    </table>
+    <table>
+        <tr>
+            <tr><td>0.1€</td><td>0.75kn</td></tr>
+            <tr> <td>0.2€</td><td>1.51kn</td></tr>
+            <tr><td>0.5€</td><td>3.77kn</td></tr>
+            <tr><td>1€</td><td>7.53kn</td></tr>
+            <tr>  <td>2€</td><td>15.07kn</td></tr>
+            <tr>  <td>3€</td><td>22.60kn</td></tr>
+            <tr>  <td>4€</td><td>30.14kn</td></tr>
+            <tr>  <td>5€</td><td>37.67kn</td></tr>
+            <tr>   <td>10€</td><td>75.35kn</td></tr>
+            <tr>   <td>15€</td><td>113.02kn</td></tr>
+            <tr>   <td>20€</td><td>150.69kn</td></tr>
+            <tr>  <td>50€</td><td>376.73kn</td></tr>
+            <tr>  <td>100€</td><td>753.45kn</td></tr>
+            <tr>  <td>200€</td><td>1506.90kn</td></tr>
+            <tr>  <td>500€</td><td>3767.25kn</td></tr>
+        </tbody>
+    </table>
+
+</body>
+<script>
+    const RATIO = "7.53450"
+    const tecaj = document.getElementById('tecaj');
+    tecaj.innerText = `TEČAJ: ${RATIO}`
+
+    const kunaInput = document.getElementById('kuna');
+    const euroInput = document.getElementById('euro');
+
+
+    kunaInput.addEventListener('input', updateKuna);
+    euroInput.addEventListener('input', updateEuro);
+
+function updateKuna(e) {
+    const converted = Number(e.target.value ) / Number(RATIO)
+  euroInput.value = converted.toFixed(2)
+}
+
+function updateEuro(e) {
+    const converted = Number(e.target.value ) * Number(RATIO)
+    kunaInput.value = converted.toFixed(2)
+}
+
+</script>
+
+<style>
+    table {
+        display: inline-block;
+        margin-right: 30px;
+    }
+    td {
+        padding: 10px;
+        padding-left: 0;
+        border-bottom: 1px solid #CCC;
+    }
+</style>
+</html>
